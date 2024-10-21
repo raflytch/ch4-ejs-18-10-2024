@@ -1,7 +1,10 @@
 const router = require("express").Router();
 
-const productControllers = require("../controllers/productControllers");
+const Product = require("./productRouter");
+const Shop = require("./shopRouter");
 
-router.post("/api/v1/products", productControllers.createProduct);
+router.use("/api/v1/shops", Shop);
+
+router.use("/api/v1/products", Product);
 
 module.exports = router;
